@@ -49,7 +49,9 @@ a {
   text-decoration: none;
   background-color: transparent;
 }
-
+small {
+  text-align: center;
+}
 .weather-app {
   border: 1px solid #dadde1;
   padding: 15px;

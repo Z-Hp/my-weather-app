@@ -50,7 +50,9 @@ a {
   background-color: transparent;
 }
 small {
+  display: block;
   text-align: center;
+  font-family: monospace;
 }
 .weather-app {
   border: 1px solid #dadde1;

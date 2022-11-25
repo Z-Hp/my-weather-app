@@ -25,6 +25,8 @@ if (minute < 10) {
 function displayWeather(response) {
   console.log(response.data);
 
+  celsiusTemperature = response.data.main.temp;
+
   let city = response.data.name;
   let temprature = Math.round(response.data.main.temp);
   let status = response.data.weather[0].description;
@@ -78,19 +80,24 @@ let button = document.querySelector("#current-location-button");
 button.addEventListener("click", getCurrentPosition);
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-// // 🙀Bonus Feature
-// function changeToFahrenheit(event) {
-//   event.preventDefault();
-//   let currentTemperature = document.querySelector("#temperature");
-//   currentTemperature.innerHTML = 66;
-// }
-// let fahrenheitUnit = document.querySelector("#fahrenheit-link");
-// fahrenheitUnit.addEventListener("click", changeToFahrenheit);
+// 🙀Unit change Feature
+function changeToFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
 
-// function changeToCelsius(event) {
-//   event.preventDefault();
-//   let currentTemperature = document.querySelector("#temperature");
-//   currentTemperature.innerHTML = 19;
-// }
-// let celsiusUnit = document.querySelector("#celsius-link");
-// celsiusUnit.addEventListener("click", changeToCelsius);
+function changeToCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", changeToFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", changeToCelsius);

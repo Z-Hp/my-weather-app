@@ -23,26 +23,25 @@ if (minute < 10) {
 /////////////////////////////////////////////////////////
 // 🕵️‍♀️Feature #2
 function displayWeather(response) {
-  let cityName = document.querySelector("#city");
-  cityName.innerHTML = response.data.name;
-
-  let temprature = Math.round(response.data.main.temp);
-  let realTemperature = document.querySelector("#temperature");
-  realTemperature.innerHTML = temprature;
-
-  let status = response.data.weather[0].description;
-  let realStatus = document.querySelector("#status");
-  realStatus.innerHTML = status;
-
   console.log(response.data);
 
+  let city = response.data.name;
+  let temprature = Math.round(response.data.main.temp);
+  let status = response.data.weather[0].description;
   let humidity = response.data.main.humidity;
-  let realHumidity = document.querySelector("#humidity");
-  realHumidity.innerHTML = humidity;
-
   let windSpeed = Math.round(response.data.wind.speed);
-  let realWindSpeed = document.querySelector("#wind-speed");
-  realWindSpeed.innerHTML = windSpeed;
+
+  let cityElement = document.querySelector("#city");
+  let temperatureElement = document.querySelector("#temperature");
+  let statusElement = document.querySelector("#status");
+  let humidityElement = document.querySelector("#humidity");
+  let windSpeedElement = document.querySelector("#wind-speed");
+
+  cityElement.innerHTML = city;
+  temperatureElement.innerHTML = temprature;
+  statusElement.innerHTML = status;
+  humidityElement.innerHTML = humidity;
+  windSpeedElement.innerHTML = windSpeed;
 }
 
 function getCityName(event) {

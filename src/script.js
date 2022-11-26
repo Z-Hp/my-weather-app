@@ -61,16 +61,12 @@ function getCityName(event) {
   let city = cityInput.value;
   let apiKey = "2fcafa1aefod01457ce321at38ddee0b";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-  // let apiKey = "108638f7df202bc94b9e7938bce3ef76";
-  // let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
 }
 
 let city = "New York";
 let apiKey = "2fcafa1aefod01457ce321at38ddee0b";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-// let apiKey = "108638f7df202bc94b9e7938bce3ef76";
-// let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayWeather);
 
 let searchForm = document.querySelector("#search-form");
@@ -83,9 +79,6 @@ function showPosition(position) {
   let longitude = position.coords.longitude;
   let apiKey = "2fcafa1aefod01457ce321at38ddee0b";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${latitude}&lon=${longitude}&key=${apiKey}&units=metric`;
-
-  // let apiKey = "108638f7df202bc94b9e7938bce3ef76";
-  // let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
 }
 

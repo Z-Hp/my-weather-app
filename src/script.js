@@ -58,6 +58,12 @@ function getCityName(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
 }
+
+let city = "New York";
+let apiKey = "108638f7df202bc94b9e7938bce3ef76";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayWeather);
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", getCityName);
 
@@ -70,7 +76,6 @@ function showPosition(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
 }
-navigator.geolocation.getCurrentPosition(showPosition);
 
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);

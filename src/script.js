@@ -83,6 +83,8 @@ button.addEventListener("click", getCurrentPosition);
 // 🙀Unit change Feature
 function changeToFahrenheit(event) {
   event.preventDefault();
+  fahrenheitLink.classList.add("deactive");
+  celsiusLink.classList.remove("deactive");
   let temperatureElement = document.querySelector("#temperature");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
@@ -90,6 +92,8 @@ function changeToFahrenheit(event) {
 
 function changeToCelsius(event) {
   event.preventDefault();
+  celsiusLink.classList.add("deactive");
+  fahrenheitLink.classList.remove("deactive");
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }

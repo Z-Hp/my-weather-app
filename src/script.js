@@ -89,33 +89,6 @@ function getCurrentPosition() {
 let button = document.querySelector("#current-location-button");
 button.addEventListener("click", getCurrentPosition);
 ////////////////////////////////////////////////////////////////////////////////////////////
-
-// 🙀Unit change Feature
-function changeToFahrenheit(event) {
-  event.preventDefault();
-  fahrenheitLink.classList.add("deactive");
-  celsiusLink.classList.remove("deactive");
-  let temperatureElement = document.querySelector("#temperature");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function changeToCelsius(event) {
-  event.preventDefault();
-  celsiusLink.classList.add("deactive");
-  fahrenheitLink.classList.remove("deactive");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", changeToFahrenheit);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", changeToCelsius);
-///////////////////////////////////////////////////////////////////////////////
 /////////////////////// Forecast Feature //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 function formatDay(timestamp) {
